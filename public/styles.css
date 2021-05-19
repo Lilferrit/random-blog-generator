@@ -1,0 +1,141 @@
+/*
+  Gavin Straub
+  5/5/2021
+  Section: AO
+  TAs: Austin, Hritik
+
+  Updated 5/5/2021
+  Updated 5/17/2021
+
+  This file governs all style on the webpage.
+  This file also contains a few classes for
+  index.js to grab style from.
+*/
+
+body {
+  background-color: rgb(30, 30, 30);
+  color: rgb(200, 200, 200);
+  font-family: "Arial", sans-serif;
+  padding: 30px 0 30px 0;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+a {
+  color: rgb(177, 175, 237);
+}
+
+a:visited {
+  color: rgb(142, 108, 184);
+}
+
+h2, article h1 {
+  font-size: 30px;
+}
+
+.comic-sans {
+  font-family: 'Comic Neue', cursive;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+header, main {
+  margin: auto;
+}
+
+main {
+  width: 80vw;
+}
+
+main > div {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header section {
+  padding: 20px 0 20px 0;
+}
+
+main header section > p {
+  max-width: 500px;
+}
+
+main, header, article, header div, article header, header section, #wordbank {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section > div, #wordbank > div {
+  flex-direction: row;
+  justify-content: center;
+}
+
+article header {
+  min-height: 80px;
+}
+
+input {
+  width: 40%;
+}
+
+button {
+  width: 175px;
+}
+
+main button {
+  margin-top: 15px;
+}
+
+main article {
+  padding: 60px;
+}
+
+main > header {
+  padding: 0;
+  margin: 0;
+}
+
+div input:not(#wordbank input), div label {
+  margin: 0 5px 0 5px;
+  width: 30%;
+}
+
+main > header, article p, article ul {
+  width: 100%;
+}
+
+article h2 {
+  font-size: 25px;
+}
+
+h1, h2, span, label {
+  margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+p, ul, marquee, img, section > div *:not(#wordbank *) {
+  margin: 10px 0 10px 0;
+}
+
+marquee > h2 {
+  margin: 0;
+}
+
+article, body > header {
+  width: 50%;
+}
+
+img {
+  max-width: 80%;
+}

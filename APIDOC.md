@@ -1,5 +1,6 @@
-# *FILL IN NAME* API Documentation
-*Fill in a short description here about the API's purpose.*
+# *Random Blog Post* API Documentation
+*This api has all the necessary functionality for managing the random
+blog post's generator wordbank collection*
 
 ## *Fill in Endpoint 1 Title*
 **Request Format:** *Fill in example request format*
@@ -18,6 +19,52 @@
 
 ```
 
+```
+
+**Error Handling:**
+*Fill in an example of the error handling*
+
+## *Fill in Endpoint 2 Title*
+**Request Format:** *Fill in example request format*
+
+**Request Type:** *Fill in request type*
+
+**Returned Data Format**: JSON
+
+**Description:** *Fill in description*
+
+**Example Request:** *Fill in example request*
+
+**Example Response:**
+*Fill in example response in the {}*
+
+```json
+{
+
+}
+```
+
+**Error Handling:**
+*Fill in an example of the error handling*
+
+## *Fill in Endpoint 2 Title*
+**Request Format:** *Fill in example request format*
+
+**Request Type:** *Fill in request type*
+
+**Returned Data Format**: JSON
+
+**Description:** *Fill in description*
+
+**Example Request:** *Fill in example request*
+
+**Example Response:**
+*Fill in example response in the {}*
+
+```json
+{
+
+}
 ```
 
 **Error Handling:**

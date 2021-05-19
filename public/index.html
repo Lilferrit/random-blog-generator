@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+  Gavin Straub
+  5/19/2021
+  Section: AO
+  TAs: Austin, Hritik
+
+  Updated 5/5/2021
+  Updated 5/18/2021
+
+  This file contains all necessary structure. Index.js
+  will be doing most of the legwork
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet">
+    <title>Random Blog Generator</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Random Blog Post Generator</h1>
+      <p>
+        Are you tired of writing your own blog post, papers, or professional memos? Are you
+        the creater of online recipes and you need some filler text to pad your google
+        search metrics and get that sweet sweet ad revenue? If you answered yes to any of those
+        questions, then look no further than this blog creater tool! I'm confident that this tool
+        will save you time and change your life. Don't believe me? Well here's a quick rundown of
+        some of the features:
+      </p>
+      <ul>
+        <li>All text will be generated containing words that you enter in the word bank.</li>
+        <li>To remove a word, simply double click it.</li>
+        <li>To increase the frequency of a word, add it to the wordbank multiple times.</li>
+        <li>
+          In the rare event that you aren't completely satisfied with the output of this tool,
+          simply double click on any element in your blog to remove it!
+        </li>
+        <li>
+          Want to make your users eyes bleed? Click on any list or paragraph
+          to change it's font to comic-sans (actually comic-nua, but the effect as at least 80% the
+          same)!
+        </li>
+        <li>
+          How about a flashback to the 90s? Click on any section header in your blog to make it
+          marque across the page!
+        </li>
+        <li>
+          Want your blog to appeal to the younger demographic? Use the generate meme
+          button to add a random popular meme to your blogpost! You'll be getting those clicks in no
+          time! All memes are are pulled from the <a href="https://imgflip.com/api"> memes api.</a>
+          (Discaimer: The Random Blog Post generator does not provide any gurantee on the
+          number of clicks gained by using the genereate meme functionality.)
+        </li>
+        <li>
+          <em>New!</em> this is pherhaps our biggest update yet; users now have the ability to save
+          and delete their wordbanks, as well as using other's wordbanks to craft their high
+          quality blogpost. Saving and deleting wordbanks requires a password. This Password
+          is stored as plain text, so it is ill-advised to use a password that you care about. On
+          the other hand, loading wordbanks does not require a password, so you can use any
+          wordbank to create a blogpost. To see a list of available wordbanks, simply click
+          the "load word bak list" button!
+        </li>
+      </ul>
+    </header>
+    <main>
+      <header>
+        <!--Imgflip Login Information-->
+        <section>
+        <h3>ImgFlip Login Credentials</h3>
+          <p>
+            In order to use the generate meme functionality, a valid imgflip account username and
+            password must be provided. A default account is provided below, but beware
+            use of this account may lead to rate limiting.
+          </p>
+          <div>
+            <label for="imgusername">ImgFlip username:</label>
+            <input name="imgusername" value="random_blog" id="img-username">
+          </div>
+          <div>
+            <label for="imgpassword">ImgFlip password:</label>
+            <input type="password" value="random_blog" name="password" id="img-password">
+          </div>
+        </section>
+        <!--Save wordbanks-->
+        <section id="save-load-wordbank">
+          <h3>Save or Delete Word Bank</h3>
+          <div>
+            <label for="name">Wordbank name:</label>
+            <input name="name" id="wordbank-name">
+          </div>
+          <div>
+            <label for="wordbank-password">Password:</label>
+            <input type="password" name="wordbank-password" id="wordbank-password">
+          </div>
+          <div>
+            <button id="save-wordbank">Save Word Bank</button>
+            <button id="delete-wordbank">Delete Word Bank</button>
+          </div>
+        </section>
+        <!--Load Wordbank-->
+        <section>
+          <h3>Load Word Bank</h3>
+          <div>
+            <label for="name">Wordbank name:</label>
+            <input name="name" id="load-name">
+          </div>
+          <div>
+            <button id="load-wordbank">Load Word Bank</button>
+          </div>
+        </section>
+        <section>
+          <h3>Word Bank List</h3>
+          <button id="load-list">Load Word Bank List</button>
+        </section>
+        <!--Wordbank-->
+        <section>
+          <h2>Word Bank:</h2>
+          <div id="wordbank">
+            <input>
+            <div>
+              <button id="more-words">Add another Word</button>
+              <button id="clear-wordbank">Clear Wordbank</button>
+            </div>
+          </div>
+        </section>
+      </header>
+      <article>
+        <header>
+          <button id="gen-title">Generate Title</button>
+        </header>
+      </article>
+      <footer>
+        <button id="gen-paragraph">Generate Paragraph</button>
+        <button id="gen-list">Generate List</button>
+        <button id="gen-header">Generate Section Header</button>
+        <button id="gen-meme">Generate Meme</button>
+      </footer>
+    </main>
+  </body>
+</html>
