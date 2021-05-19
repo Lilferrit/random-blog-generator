@@ -37,6 +37,7 @@
     id("load-wordbank").addEventListener("click", loadWords);
     id("clear-wordbank").addEventListener("click", clearWordBank);
     id("load-list").addEventListener("click", getWordBankList);
+    id("load-all").addEventListener("click", loadAllWords);
 
     addRemoveEvent();
   }
@@ -230,8 +231,21 @@
     fetch("/load?name=" + name)
       .then(statusCheck)
       .then(resp => resp.json())
-      .then(updateWordbank)
+      .then(updateWordBank)
       .catch(addErrorMessage);
+  }
+
+  /**
+   * Grabs all words from the random blog generator API and
+   * updates the user's wordbank space with the entrire wordbank
+   * collection
+   */
+  function loadAllWords() {
+    fetch("/all")
+      .then(statusCheck)
+      .then(resp => resp.json())
+      .then(processCollection)
+      .catch(addErrorMessage)
   }
 
   /**
@@ -251,11 +265,29 @@
   }
 
   /**
-   * Updates the wordbank with new words
-   * @param {StringList} wordList the list of words that will compose
-   *                     the new wordbank
+   * Adds multiple wordbanks to the user's wordbank space
+   * @param {Json} collectionJson a json object containing wordbanks of the form:
+   *                              {words:["words here", "ect"]}
    */
-  function updateWordbank(wordList) {
+  function processCollection(collectionJson) {
+    let wordBanks = Object.keys(collectionJson);
+    let allWords = [];
+
+    for (let i = 0; i < wordBanks.length; i++) {
+      let nextWords = collectionJson[wordBanks[i]]["words"];
+      allWords = allWords.concat(nextWords);
+    }
+
+    let allWordsJson = {"words":allWords}
+    updateWordBank(allWordsJson);
+  }
+
+  /**
+   * Updates the wordbank with new words
+   * @param {Json} wordList object containing the new worbank as an
+   *                        array of strings at key "words"
+   */
+  function updateWordBank(wordList) {
     let wordBank = id("wordbank");
     let buttons = document.querySelector("#wordbank div");
     let oldWords = document.querySelectorAll("#wordbank input");

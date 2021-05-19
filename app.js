@@ -160,6 +160,29 @@ app.get("/wordbanks", async (req, resp) => {
 });
 
 /**
+ * Sends the entire wordbank collection with passwords removed
+ */
+app.get("/all", async (req, resp) => {
+  try {
+    // Strip passwords
+    let allWordBanks = await wordBankJson();
+    let wordBanks = Object.keys(allWordBanks);
+
+    for (let i = 0; i < wordBanks.length; i++) {
+      delete allWordBanks[wordBanks[i]]["password"];
+    }
+
+    resp.status(200)
+      .type("json")
+      .send(allWordBanks);
+  } catch (err) {
+    resp.status(500)
+      .type("text")
+      .send(err);
+  }
+});
+
+/**
  * Updates the file words.json with new wordbank. If name doesn't exist
  * in allWordBanks, then name will be added with word bank wordBank and
  * password password. If the wordbank does exist, then it's wordbank will

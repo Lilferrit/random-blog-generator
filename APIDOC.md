@@ -53,7 +53,7 @@ Successfully deleted wordbank {name}
 - Possible 400 errors, all of which are sent as plain text
     - If `name` is not in the wordbank collection, the response `Cannot find wordbank {name}` will
       be sent
-    - If `passwrod` does not match the password associated with `name`, the response
+    - If `password` does not match the password associated with `name`, the response
       `Password does not match wordbank: {name}` will be sent
 
 ## Load the wordlist of a wordbank
@@ -96,6 +96,33 @@ Successfully deleted wordbank {name}
 ```
 {
     "wordBanks":["wordbank1", wordbank2", "mywords", "bob"]
+}
+```
+
+**Error Handling:**
+- N/A
+
+## Retrieve All Wordbanks
+**Request Format:** /all (no parameters)
+
+**Request Type:** GET
+
+**Returned Data Format**: JSON
+
+**Description:** Sends a nested JSON object containing all wordbanks with passwords stripped
+
+**Example Request:** /all
+
+**Example Response:**
+
+```
+{
+    "wordbank1": {
+      "words":["wordbank1", wordbank2", "mywords", "bob"]
+    },
+    "mywords":{
+      "words":["I","Make","The","Best", "Passwords"]
+    }
 }
 ```
 
