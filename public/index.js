@@ -90,7 +90,7 @@
     newHeader.textContent = "Word Bank List";
     listContainer.appendChild(newHeader);
 
-    for (let i = 0 ; i < wordBanks.length; i++) {
+    for (let i = 0; i < wordBanks.length; i++) {
       let nextWordBank = document.createElement("li");
       nextWordBank.textContent = wordBanks[i];
       wordBankList.appendChild(nextWordBank);
@@ -258,7 +258,7 @@
   function updateWordbank(wordList) {
     let wordBank = id("wordbank");
     let buttons = document.querySelector("#wordbank div");
-    let oldWords = document.querySelectorAll("#wordbank input")
+    let oldWords = document.querySelectorAll("#wordbank input");
     
     oldWords.forEach(wordBox => wordBox.remove());
 
@@ -535,10 +535,7 @@
    */
   function addErrorMessage(warning) {
     // Filter any errors that are not usefull to the end user
-    console.log(warning);
     if (!warning.includes("typerror")) {
-      let header = document.querySelector("main > header");
-
       let warningText = document.createElement("p");
       warningText.classList.add("red");
       warningText.textContent = warning;
@@ -559,9 +556,9 @@
     if (isError) {
       messages = document.querySelectorAll(".red");
     } else {
-      messages = document.querySelectorAll(".green")
+      messages = document.querySelectorAll(".green");
     }
-    
+
     for (let i = 0; i < messages.length; i++) {
       messages[i].remove();
     }
@@ -650,6 +647,7 @@
     return document.getElementById(elementId);
   }
 })();
+
 /**
  * Congrats on making this far! Just to think that number of lines in this
  * file has doubled since the initial version of random blogpost generator

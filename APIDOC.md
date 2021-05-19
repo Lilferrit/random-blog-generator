@@ -56,7 +56,7 @@ Successfully deleted wordbank {name}
     - If `passwrod` does not match the password associated with `name`, the response
       `Password does not match wordbank: {name}` will be sent
 
-## Load the wordlist of a wordbanl
+## Load the wordlist of a wordbank
 **Request Format:** /load with query parameter `name`
 
 **Request Type:** GET

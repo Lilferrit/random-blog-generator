@@ -51,12 +51,14 @@ app.post("/save", async (req, resp) => {
 
     if (wordBank && password !== wordBank["password"]) {
       let errorText = "Given password does not match password on file for wordbank: " + name;
-      resp.status(400).type("text").send(errorText);
+      resp.status(400).type("text")
+        .send(errorText);
     } else {
       await updateWordBanks(allWordBanks, wordBank, name, password, words, resp);
     }
   } catch (err) {
-    resp.status(500).type("text").send(err);
+    resp.status(500).type("text")
+      .send(err);
   }
 });
 
@@ -81,16 +83,20 @@ app.post("/delete", async (req, resp) => {
     if (allWordBanks[name] && password === allWordBanks[name]["password"]) {
       delete allWordBanks[name];
       await fs.writeFile("words.json", JSON.stringify(allWordBanks));
-      resp.status(200).type("text").send("Sucessfully deleted wordbank: " + name);
+      resp.status(200).type("text")
+        .send("Sucessfully deleted wordbank: " + name);
 
     } else if (!allWordBanks[name]) {
-      resp.status(400).type("text").send("Cannot find wordbank: " + name);
+      resp.status(400).type("text")
+        .send("Cannot find wordbank: " + name);
 
     } else {
-      resp.status(400).type(text).send("Password does not match wordbank: " + name);
-    } 
+      resp.status(400).type("text")
+        .send("Password does not match wordbank: " + name);
+    }
   } catch (err) {
-    resp.status(500).type("text").send(err);
+    resp.status(500).type("text")
+      .send(err);
   }
 });
 
@@ -117,10 +123,14 @@ app.get("/load", async (req, resp) => {
       delete wordBank["password"];
       resp.send(wordBank);
     } else {
-      resp.status(400).type("text").send("No wordbank with name " + name + " exists.");
+      resp.status(400)
+        .type("text")
+        .send("No wordbank with name " + name + " exists.");
     }
   } catch (err) {
-    resp.status(500).type("text").send(err);
+    resp.status(500)
+      .type("text")
+      .send(err);
   }
 });
 
@@ -139,9 +149,13 @@ app.get("/wordbanks", async (req, resp) => {
     let wordBankArray = {};
     wordBankArray["wordBanks"] = wordBankNames;
 
-    resp.status(200).type("json").send(wordBankArray);
+    resp.status(200)
+      .type("json")
+      .send(wordBankArray);
   } catch (err) {
-    resp.status(500).type("text").send(err);
+    resp.status(500)
+      .type("text")
+      .send(err);
   }
 });
 
@@ -150,7 +164,7 @@ app.get("/wordbanks", async (req, resp) => {
  * in allWordBanks, then name will be added with word bank wordBank and
  * password password. If the wordbank does exist, then it's wordbank will
  * be updated if password mathches the associated password.
- * 
+ *
  * @param {JSON} allWordBanks json object containing all wordbans
  * @param {JSON} wordBank the wordbank to be updated, set to undefined if
  *                        a new wordbank is to be created
@@ -168,7 +182,7 @@ async function updateWordBanks(allWordBanks, wordBank, name, password, words, re
     wordBank["words"] = words.split(",");
     resp.send("Sucessfully updated wordbank: " + name);
   } else {
-    let newWordBank = {}
+    let newWordBank = {};
     newWordBank["password"] = password;
     newWordBank["words"] = words.split(",");
     allWordBanks[name] = newWordBank;
@@ -183,9 +197,8 @@ async function updateWordBanks(allWordBanks, wordBank, name, password, words, re
  */
 async function wordBankJson() {
   let file = await fs.readFile("words.json", "utf-8");
-  return await JSON.parse(file);
+  return JSON.parse(file);
 }
 
 app.use(express.static("public"));
-let port = process.env.PORT || 8000;
-app.listen(port);
+app.listen(process.env.PORT || 8000);
