@@ -1,94 +1,103 @@
 # *Random Blog Post* API Documentation
-*This api has all the necessary functionality for managing the random
-blog post's generator wordbank collection*
+This api has all the necessary functionality for managing the random
+blog post generator's wordbank collection.
 
-## *Fill in Endpoint 1 Title*
-**Request Format:** *Fill in example request format*
+## Save a Wordbank
+**Request Format:** /save with parameters `name`, `password`, and `words`
 
-**Request Type:** *Fill in request type*
+**Request Type:** POST
 
 **Returned Data Format**: Plain Text
 
-**Description:** *Fill in description*
+**Description:** Either saves a new wordbank to the collection or updates the wordlist the specified
+wordbank if the wordbank already exist in the collection. A password is required for both creating
+a new wordbank or updating a wordbank. 
 
-
-**Example Request:** *Fill in example request*
+**Example Request:** /save with post parameters `name=mywords`, `password=password`, and
+`words=I,Make,The,Best,Passwords`
 
 **Example Response:**
-*Fill in example response in the ticks*
-
 ```
-
+Sucessfully added wordbank {name} to collection!
+```
+or
+```
+Sucessfully updated wordbank: {name}
 ```
 
 **Error Handling:**
-*Fill in an example of the error handling*
+- Possible 400 errors, all of which are sent as plain text
+    - If `name` is an existing wordbank and `password` does not match the existing password for
+      name, the text `Given password does not match password on file for wordbank {name}` will
+      be sent.
 
-## *Fill in Endpoint 2 Title*
-**Request Format:** *Fill in example request format*
 
-**Request Type:** *Fill in request type*
+## Delete a Wordbank
+**Request Format:** /delete with POST parameters `name` and `password`
+
+**Request Type:** POST
+
+**Returned Data Format**: Plain text
+
+**Description:** Deletes the wordbank name from the collection if `password` matches the
+password associated with the wordbank.
+
+**Example Request:** /delete with POST parameters `name=mywords` and `password=password`
+
+**Example Response:**
+```
+Successfully deleted wordbank {name}
+```
+
+**Error Handling:**
+- Possible 400 errors, all of which are sent as plain text
+    - If `name` is not in the wordbank collection, the response `Cannot find wordbank {name}` will
+      be sent
+    - If `passwrod` does not match the password associated with `name`, the response
+      `Password does not match wordbank: {name}` will be sent
+
+## Load the wordlist of a wordbanl
+**Request Format:** /load with query parameter `name`
+
+**Request Type:** GET
 
 **Returned Data Format**: JSON
 
-**Description:** *Fill in description*
+**Description:** Retrieves the wordlist of the wordbank with the name `name`.
 
-**Example Request:** *Fill in example request*
+**Example Request:** /load?name=mywords
 
 **Example Response:**
-*Fill in example response in the {}*
 
-```json
+```
 {
-
+    "name": "name",
+    "words": ["I", "Make", "The", "Best", "Passwords"]
 }
 ```
 
 **Error Handling:**
-*Fill in an example of the error handling*
+- Possible 400 errors, all of which are sent as plain text
+    - If no wordbank with a name of `name` can be found, then the response `No wordbank with name {name} exists.`
 
-## *Fill in Endpoint 2 Title*
-**Request Format:** *Fill in example request format*
+## Retrieve a list of all Wordbanks
+**Request Format:** /wordbanks (no parameters)
 
-**Request Type:** *Fill in request type*
+**Request Type:** GET
 
 **Returned Data Format**: JSON
 
-**Description:** *Fill in description*
+**Description:** Sends a JSON object containing a list of all the wordbanks in the collection
 
-**Example Request:** *Fill in example request*
+**Example Request:** /wordbanks
 
 **Example Response:**
-*Fill in example response in the {}*
 
-```json
+```
 {
-
+    "wordBanks":["wordbank1", wordbank2", "mywords", "bob"]
 }
 ```
 
 **Error Handling:**
-*Fill in an example of the error handling*
-
-## *Fill in Endpoint 2 Title*
-**Request Format:** *Fill in example request format*
-
-**Request Type:** *Fill in request type*
-
-**Returned Data Format**: JSON
-
-**Description:** *Fill in description*
-
-**Example Request:** *Fill in example request*
-
-**Example Response:**
-*Fill in example response in the {}*
-
-```json
-{
-
-}
-```
-
-**Error Handling:**
-*Fill in an example of the error handling*
+- N/A

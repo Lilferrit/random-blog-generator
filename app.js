@@ -187,5 +187,5 @@ async function wordBankJson() {
 }
 
 app.use(express.static("public"));
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 8000;
 app.listen(port);
