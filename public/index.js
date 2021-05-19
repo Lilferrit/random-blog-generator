@@ -245,7 +245,7 @@
       .then(statusCheck)
       .then(resp => resp.json())
       .then(processCollection)
-      .catch(addErrorMessage)
+      .catch(addErrorMessage);
   }
 
   /**
@@ -278,7 +278,7 @@
       allWords = allWords.concat(nextWords);
     }
 
-    let allWordsJson = {"words":allWords}
+    let allWordsJson = {"words": allWords};
     updateWordBank(allWordsJson);
   }
 
