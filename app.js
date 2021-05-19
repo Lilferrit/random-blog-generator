@@ -200,5 +200,6 @@ async function wordBankJson() {
   return JSON.parse(file);
 }
 
+const PORT = process.env.PORT || 8000
 app.use(express.static("public"));
-app.listen(process.env.PORT || 8000);
+app.listen(PORT);

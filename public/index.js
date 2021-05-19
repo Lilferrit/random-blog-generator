@@ -259,7 +259,7 @@
     let wordBank = id("wordbank");
     let buttons = document.querySelector("#wordbank div");
     let oldWords = document.querySelectorAll("#wordbank input");
-    
+
     oldWords.forEach(wordBox => wordBox.remove());
 
     for (let i = 0; i < wordList["words"].length; i++) {
