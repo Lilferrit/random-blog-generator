@@ -1,17 +1,3 @@
-/*
-  Gavin Straub
-  5/5/2021
-  Section: AO
-  TAs: Austin, Hritik
-
-  Updated 5/5/2021
-  Updated 5/17/2021
-
-  This file governs all style on the webpage.
-  This file also contains a few classes for
-  index.js to grab style from.
-*/
-
 body {
   background-color: rgb(30, 30, 30);
   color: rgb(200, 200, 200);

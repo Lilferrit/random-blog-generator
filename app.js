@@ -1,16 +1,3 @@
-/**
- * Gavin Straub
- * Section AO
- * 5/19/2021
- * TAs: Austin, Hritik
- *
- * This file contains all back-end functionality for
- * the random blog post generator. This functionality
- * includes saving wordbanks, deleting wordbanks,
- * retrieving a list of all known wordbanks,
- * and loading wordbanks.
- */
-
 "use strict";
 
 const express = require("express");

@@ -1,20 +1,3 @@
-/**
- * Gavin Straub
- * Section AO
- * 5/5/2021
- * TAs: Austin, Hritik
- *
- * Updated 5/5/2021
- * Updated 5/17/2021
- *
- * This is responsible for all the front-end
- * functionality of the random blog generator.
- * This entails sending save, load, delete, and show
- * list request to the server, interacting with imgflip's
- * memes API, and randomly generating blog post elements
- * based on the words that the user has staged in the wordbank.
- */
-
 "use strict";
 
 (function() {
